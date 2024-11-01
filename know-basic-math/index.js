@@ -75,7 +75,61 @@ function isArmstrongNumber(num) {
     }
 }
 
-console.log(isArmstrongNumber(153));   // Output: "sahi jaa rahe ho"
-console.log(isArmstrongNumber(-153));  // Output: "negative sahi jaa rahe ho"
-console.log(isArmstrongNumber(-371));  // Output: "negative sahi jaa rahe ho"
-console.log(isArmstrongNumber(-123));  // Output: "nahi jaa rahe ho"
+// console.log(isArmstrongNumber(153));   // Output: "sahi jaa rahe ho"
+// console.log(isArmstrongNumber(-153));  // Output: "negative sahi jaa rahe ho"
+// console.log(isArmstrongNumber(-371));  // Output: "negative sahi jaa rahe ho"
+// console.log(isArmstrongNumber(-123));  // Output: "nahi jaa rahe ho"
+
+
+function gcd(N1, N2) {
+    function getFactors(num) {
+        const factors = [];
+        for (let i = 1; i <= num; i++) {
+            if (num % i === 0) {
+                factors.push(i);
+            }
+        }
+        return factors;
+    }
+
+    const factorsN1 = getFactors(N1);
+    const factorsN2 = getFactors(N2);
+
+    const commonFactors = factorsN1.filter(factor => factorsN2.includes(factor));
+
+    return Math.max(...commonFactors);
+}
+
+console.log(gcd(9, 12)); // Output: 3
+console.log(gcd(20, 15)); // Output: 5
+
+
+function getDivisors(N) {
+    const divisors = [];
+    for (let i = 1; i <= N; i++) {
+        if (N % i === 0) {
+            divisors.push(i);
+        }
+    }
+    return divisors;
+}
+
+// Example usage:
+console.log(getDivisors(36)); // Output: [1, 2, 3, 4, 6, 9, 12, 18, 36]
+console.log(getDivisors(12)); // Output: [1, 2, 3, 4, 6, 12]
+
+function isPrime(N) {
+    if (N <= 1) return false; // Numbers less than 2 are not prime
+    if (N === 2) return true;  // 2 is the only even prime number
+
+    for (let i = 2; i <= Math.sqrt(N); i++) {
+        if (N % i === 0) {
+            return false; 
+        }
+    }
+    return true; 
+}
+
+// Example usage:
+console.log(isPrime(2)); // Output: true
+console.log(isPrime(10)); // Output: false
