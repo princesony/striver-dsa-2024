@@ -74,7 +74,7 @@ function countCharacterFrequencies(str) {
     return frequencyMap;
 }
 
-// Example usage:
-const inputString = "hello world";
-const frequencies = countCharacterFrequencies(inputString);
-console.log(frequencies);
+// // Example usage:
+// const inputString = "hello world";
+// const frequencies = countCharacterFrequencies(inputString);
+// console.log(frequencies);
