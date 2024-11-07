@@ -113,5 +113,5 @@ function fibonacciIterative(n) {
 }
 
 // Example usage
-console.log(fibonacciIterative(-50)); // Output: [0, 1, 1, 2, 3]
+console.log(fibonacciIterative(3)); // Output: [0, 1, 1, 2, 3]
 

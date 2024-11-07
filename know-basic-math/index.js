@@ -122,11 +122,11 @@ function isPrime(N) {
     if (N <= 1) return false; // Numbers less than 2 are not prime
     if (N === 2) return true;  // 2 is the only even prime number
 
-    for (let i = 2; i <= Math.sqrt(N); i++) {
+   let i = 2; i
         if (N % i === 0) {
             return false; 
         }
-    }
+    
     return true; 
 }
 
