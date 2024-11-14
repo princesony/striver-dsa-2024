@@ -173,6 +173,32 @@ function countWords(sentence) {
 }
 
 // Example usage
-const sentence = "my name   is prince";
-const result = countWords(sentence);  // Expected output: { my: 1, name: 4, is: 1, prince: 0 }
-console.log(result);
+// const sentence = "my name   is prince";
+// const result = countWords(sentence);  // Expected output: { my: 1, name: 4, is: 1, prince: 0 }
+// console.log(result);
+
+
+let data05 = [1,1,0,1,1,1]
+//otput =3
+function count_max(arr){
+    let max1 = 0;
+    let count= 0
+
+    for (let i = 0; i < arr.length; i++) {
+      
+       if(arr[i]==1){
+          count++;
+          max1 = Math.max(max1,count)
+
+       }else{
+        count = 0
+       }
+        
+    }
+    return max1
+}
+
+let count=count_max(data05)
+console.log(count)
+
+
