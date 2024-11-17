@@ -198,7 +198,76 @@ function count_max(arr){
     return max1
 }
 
-let count=count_max(data05)
-console.log(count)
+// let count=count_max(data05)
+// console.log(count)
+  let once_repat = [1,1,2,2,3,4,4,5,5]
 
 
+
+  function once_repat_check(arr) {
+    let counts = {};  // Object to track the count of each number
+    
+    // Loop through the array to count occurrences
+    for (let i = 0; i < arr.length; i++) {
+        let element = arr[i];
+        counts[element] = (counts[element] || 0) + 1;
+    }
+
+    // Find the element that appears only once
+    for (let element in counts) {
+        if (counts[element] === 1) {
+            console.log(element);  // Log the element that appears only once
+            return element;  // Return the element
+        }
+    }
+}
+
+// Example usage:
+
+once_repat_check(once_repat);  // Output: 3
+
+
+let data = once_repat_check(once_repat)
+console.log(data)
+
+
+function findSingleNumber(nums) {
+    let result = 0;
+    for (let num of nums) {
+        result ^= num;  // XOR each number
+    }
+    return result;  // The result will be the number that appears only once
+}
+
+// // Example usage:
+// const nums = [4, 1, 2, 1, 2];
+// console.log(findSingleNumber(nums));  // Output: 4
+
+
+
+let once_repat01 = [1, 1, 2, 2, 3, 4, 4, 5, 5];
+
+function once_repat_check0(arr) {
+    let element;
+    
+    for (let o = 0; o < arr.length; o++) {
+        let count = 0;
+        element = arr[o];  // use arr instead of array
+        
+        // Count occurrences of `element` in the array
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === element) {
+                count++;
+            }
+        }
+        
+        // If the count is 1, then this is the number that appears once
+        if (count === 1) {
+            console.log(element);  // log the element that appears only once
+            return element;  // return it
+        }
+    }
+}
+
+// Example usage:
+once_repat_check0(once_repat01);  // Output: 3
