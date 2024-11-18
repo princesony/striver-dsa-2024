@@ -224,11 +224,11 @@ function count_max(arr){
 
 // Example usage:
 
-once_repat_check(once_repat);  // Output: 3
+// once_repat_check(once_repat);  // Output: 3
 
 
-let data = once_repat_check(once_repat)
-console.log(data)
+// let data = once_repat_check(once_repat)
+// console.log(data)
 
 
 function findSingleNumber(nums) {
@@ -258,6 +258,8 @@ function once_repat_check0(arr) {
         for (let i = 0; i < arr.length; i++) {
             if (arr[i] === element) {
                 count++;
+            }else{
+                count = 0;
             }
         }
         
@@ -271,3 +273,87 @@ function once_repat_check0(arr) {
 
 // Example usage:
 once_repat_check0(once_repat01);  // Output: 3
+
+
+
+
+
+// let count_array = [2,6,5,8,11] 
+// let target = 14;
+
+
+// function coun_sum(array,target){
+// let count = false;
+// for (let i = 0; i < array.length; i++) {
+//     const element = array[i];
+//     let find_num = target-element
+//     let find_index = array.indexOf(find_num)
+//     if(find_index !== -1 && find_index !== i){
+//        count = true
+    
+//     }
+// }
+// console.log(count)
+// return count
+
+// }
+
+//  coun_sum(count_array,target)
+
+
+function coun_sum(array, target) {
+    // Iterate through the array
+    for (let i = 0; i < array.length; i++) {
+      const element = array[i];
+      const find_num = target - element;
+      // Find the index of the complement, making sure it's not the same index
+      let find_index = array.indexOf(find_num);
+  
+      if (find_index !== -1 && find_index !== i) {
+        // Return the indices of the two numbers
+        console.log(`Indices: ${i}, ${find_index}`);
+        return [i, find_index]; // Return indices of the pair
+      }
+    }
+    console.log("No pair found");
+    return null; // Return null if no pair is found
+  }
+  
+//   let count_array = [2, 6, 5, 8, 11];
+//   let target = 8;
+  
+//   coun_sum(count_array, target); // Example usage
+
+
+
+let onece_twos_threes = [0, 1, 2, 0, 1, 2, 1, 2, 0, 0, 0, 1];
+
+function sort_0_1_2(arr) {
+    let leng_th = arr.length;
+    let count_0 = {
+        zero: 0,
+        one: 0,
+        two: 0
+    };
+
+    // Count the occurrences of 0, 1, and 2
+    for (let j = 0; j < leng_th; j++) {
+        if (arr[j] === 0) {
+            count_0.zero++;
+        } else if (arr[j] === 1) {
+            count_0.one++;
+        } else if (arr[j] === 2) {
+            count_0.two++;
+        }
+    }
+
+    // Create a new sorted array based on the counts
+    return [
+        ...new Array(count_0.zero).fill(0),
+        ...new Array(count_0.one).fill(1),
+        ...new Array(count_0.two).fill(2)
+    ];
+}
+
+let x = sort_0_1_2(onece_twos_threes);
+console.log(x);  // Output: [0, 0, 0, 0, 1, 1, 1, 2, 2, 2]
