@@ -407,3 +407,27 @@ function sortArray(nums) {
 // Example usage:
 const arr001 = [2, 0, 2, 1, 1, 0];
 console.log(sortArray(arr001)); // Output: [0, 0, 1, 1, 2, 2]
+
+
+function majorityElement(nums) {
+    const n = nums.length;
+    const freqMap = {};
+
+    // Count the frequency of each element
+    for (let num of nums) {
+        freqMap[num] = (freqMap[num] || 0) + 1;
+    }
+
+    // Check if any element occurs more than n/2 times
+    for (let key in freqMap) {
+        if (freqMap[key] > n / 2) {
+            return key;
+        }
+    }
+
+    return null;  // No majority element found
+}
+
+// Example usage:
+const nums = [3, 2, 3];
+console.log(majorityElement(nums));  // Output: 3
