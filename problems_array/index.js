@@ -355,5 +355,55 @@ function sort_0_1_2(arr) {
     ];
 }
 
-let x = sort_0_1_2(onece_twos_threes);
-console.log(x);  // Output: [0, 0, 0, 0, 1, 1, 1, 2, 2, 2]
+ let x = sort_0_1_2(onece_twos_threes);
+ console.log(x);  // Output: [0, 0, 0, 0, 1, 1, 1, 2, 2, 2]
+
+
+
+
+function onece_twos_threes0(array){
+    let count = [];
+
+   for (let i = 0; i < 3; i++) {
+  for (let j = 0; j < array.length; j++) {
+    if (array[j] === i) {
+        count.push(i);
+    }
+    
+  }
+    
+   }
+   return count
+
+}
+
+let data6 = onece_twos_threes0(onece_twos_threes)
+console.log(data6)
+
+
+
+function sortArray(nums) {
+    let low = 0, mid = 0, high = nums.length - 1;
+
+    while (mid <= high) {
+        if (nums[mid] === 0) {
+          
+            [nums[low], nums[mid]] = [nums[mid], nums[low]];
+            low++;
+            mid++;
+        } else if (nums[mid] === 1) {
+           
+            mid++;
+        } else {
+           
+            [nums[mid], nums[high]] = [nums[high], nums[mid]];
+            high--;
+        }
+    }
+
+    return nums;
+}
+
+// Example usage:
+const arr001 = [2, 0, 2, 1, 1, 0];
+console.log(sortArray(arr001)); // Output: [0, 0, 1, 1, 2, 2]
