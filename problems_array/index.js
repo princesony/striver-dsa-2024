@@ -428,6 +428,50 @@ function majorityElement(nums) {
     return null;  // No majority element found
 }
 
+// // Example usage:
+// const nums = [3, 2, 3];
+// console.log(majorityElement(nums));  // Output: 3
+
+
+function maxSubArraySum(arr) {
+    // Initialize variables
+    let currentSubarraySum = arr[0]; // Start with the first element
+    let maxSubarraySum = arr[0]; // Max sum is initially the first element
+  
+    // Iterate through the array starting from the second element
+    for (let i = 1; i < arr.length; i++) {
+      // Update currentSubarraySum
+      currentSubarraySum = Math.max(arr[i], currentSubarraySum + arr[i]);
+  
+      // Update maxSubarraySum if we find a new maximum
+      maxSubarraySum = Math.max(maxSubarraySum, currentSubarraySum);
+    }
+  
+    // Return the result
+    return maxSubarraySum;
+  }
+  
+//   // Example usage:
+//   const arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+//   console.log(maxSubArraySum(arr));  // 
 // Example usage:
-const nums = [3, 2, 3];
-console.log(majorityElement(nums));  // Output: 3
+
+function maxProfit(arr) {
+    let maxPro = 0;
+    // Loop through each element in the array
+    for (let i = 0; i < arr.length; i++) {
+        // Compare with subsequent elements
+        for (let j = i + 1; j < arr.length; j++) {
+            // Check if we can make a profit (arr[j] > arr[i])
+            if (arr[j] > arr[i]) {
+                maxPro = Math.max(arr[j] - arr[i], maxPro);
+            }
+        }
+    }
+    return maxPro;
+}
+
+// Example usage
+const arr01 = [7, 1, 5, 3, 6, 4];
+const maxProfitValue = maxProfit(arr01);
+console.log("Max profit is: " + maxProfitValue);
