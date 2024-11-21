@@ -475,3 +475,49 @@ function maxProfit(arr) {
 const arr01 = [7, 1, 5, 3, 6, 4];
 const maxProfitValue = maxProfit(arr01);
 console.log("Max profit is: " + maxProfitValue);
+
+
+
+
+//////
+function rearrangeArray(arr) {
+    // Separate the array into positive and negative numbers
+    let positive = [];
+    let negative = [];
+    
+    // Traverse the input array and push positive and negative numbers into their respective arrays
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > 0) {
+            positive.push(arr[i]);
+        } else if (arr[i] < 0) {
+            negative.push(arr[i]);
+        }
+    }
+    
+    // Initialize an array to store the result
+    let result = [];
+    let i = 0, j = 0;
+    
+    // We start alternating between positive and negative numbers
+    while (i < positive.length && j < negative.length) {
+        result.push(positive[i++]);
+        result.push(negative[j++]);
+    }
+    
+    // If there are any remaining positive numbers, add them to the result
+    while (i < positive.length) {
+        result.push(positive[i++]);
+    }
+    
+    // If there are any remaining negative numbers, add them to the result
+    while (j < negative.length) {
+        result.push(negative[j++]);
+    }
+    
+    return result;
+}
+
+// Test the function
+const inputArray = [1, -2, 3, -4, -5, 6];
+const rearrangedArray = rearrangeArray(inputArray);
+console.log(rearrangedArray); // [1, -2, 3, -4, 6, -5]
