@@ -63,3 +63,38 @@ return Math.max.apply({},odd_digit)
   
   let prefix_01 = find_prefic(str)
   console.log(prefix_01)
+
+
+  function areAnagrams(str1, str2) {
+    if (str1.length !== str2.length) return false;
+    
+    // Sort both strings and compare
+    return str1.split('').sort().join('') === str2.split('').sort().join('');
+  }
+  
+  // console.log(areAnagrams("listen", "silent")); // true
+  // console.log(areAnagrams("hello", "world"));   // false
+  
+  function sortCharactersByFrequency(str) {
+    // Create a Map to store the frequency of each character
+    const freqMap = new Map();
+    
+    // Count frequency of each character
+    for (const char of str) {
+        freqMap.set(char, (freqMap.get(char) || 0) + 1);
+    }
+
+    // Convert the map to an array of [character, frequency] pairs
+    const sorted = [...freqMap.entries()]
+        .sort((a, b) => b[1] - a[1]);  // Sort by frequency (descending)
+
+    // Construct the result string
+    let result = '';
+    for (const [char, count] of sorted) {
+        result += char.repeat(count);  // Repeat the character based on its frequency
+    }
+
+    return result;
+}
+
+console.log(sortCharactersByFrequency('abacbba'));
