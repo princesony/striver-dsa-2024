@@ -77,24 +77,47 @@ return Math.max.apply({},odd_digit)
   
   function sortCharactersByFrequency(str) {
     // Create a Map to store the frequency of each character
-    const freqMap = new Map();
+    let result = str.split("").sort().join("")
     
     // Count frequency of each character
-    for (const char of str) {
-        freqMap.set(char, (freqMap.get(char) || 0) + 1);
-    }
-
-    // Convert the map to an array of [character, frequency] pairs
-    const sorted = [...freqMap.entries()]
-        .sort((a, b) => b[1] - a[1]);  // Sort by frequency (descending)
-
-    // Construct the result string
-    let result = '';
-    for (const [char, count] of sorted) {
-        result += char.repeat(count);  // Repeat the character based on its frequency
-    }
-
+  
     return result;
 }
 
-console.log(sortCharactersByFrequency('abacbba'));
+// console.log(sortCharactersByFrequency('abacbba'));
+
+// function sortCharactersByFrequency(str) {
+//   // Create a Map to store the frequency of each character
+//   let frequencyMap = new Map();
+  
+//   // Count the frequency of each character
+//   for (let char of str) {
+//       frequencyMap.set(char, (frequencyMap.get(char) || 0) + 1);
+//   }
+
+//   // Sort characters by their frequency in descending order
+//   let sortedCharacters = [...frequencyMap.entries()].sort((a, b) => b[1] - a[1]);
+
+//   // Create the result string based on the sorted characters
+//   let result = '';
+//   for (let [char, freq] of sortedCharacters) {
+//       result += char.repeat(freq); // Repeat the character by its frequency
+//   }
+//   console.log("i am ")
+//   return result;
+// }
+
+// console.log(sortCharactersByFrequency('abacbba'));
+
+
+
+function reverseWords(str) {
+  // Split the string by spaces to get an array of words
+  return str.split(' ').map(item=>item.split("").reverse().join('')).join()  // Split by spaces
+      
+}
+
+console.log(reverseWords("Hello World"));  // Output: "olleH dlroW"
+console.log(reverseWords("JavaScript is awesome"));  // Output: "tpircSavaJ si emosewa"
+console.log(reverseWords("Reverse every word in a string"));  // Output: "esreveR yreve drow ni a gnirts"
+
