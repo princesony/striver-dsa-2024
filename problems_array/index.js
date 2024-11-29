@@ -521,3 +521,4 @@ function rearrangeArray(arr) {
 const inputArray = [1, -2, 3, -4, -5, 6];
 const rearrangedArray = rearrangeArray(inputArray);
 console.log(rearrangedArray); // [1, -2, 3, -4, 6, -5]
+
