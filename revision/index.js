@@ -98,7 +98,46 @@ function insertionSort01(arr){
     return sortedArray.concat(left.slice(leftIndex), right.slice(rightIndex));
   }
 
-  console.log(mergeSort(array_mess))
+  // console.log(mergeSort(array_mess))
   
- 
+  function countWords(sentence) {
+    const words = sentence.trim().replace(/\s+/g, ' ').split(' ');
+
+    // Initialize an object to store the space counts between words
+    const wordCounts = {};
+
+    // Iterate through the words and calculate the number of spaces between each pair of words
+    for (let i = 0; i < words.length; i++) {
+        const currentWord = words[i];
+        
+        // Initialize word count for the current word if it's the first time encountering it
+        if (!wordCounts[currentWord]) {
+            wordCounts[currentWord] = 0;
+        }
+
+        // If it's not the last word, calculate the space difference between current word and next word
+        if (i < words.length - 1) {
+            const nextWord = words[i + 1];
+            // Find the starting position of the current word and the next word in the original sentence
+            let currentWordEnd = sentence.indexOf(currentWord) + currentWord.length;
+            let nextWordStart = sentence.indexOf(nextWord, currentWordEnd);
+             console.log("next"+nextWordStart)
+            // Calculate space between the current word and the next word
+            let spaceCount = nextWordStart - currentWordEnd;
+            
+            // Update the space count in the wordCounts object
+            wordCounts[currentWord] = spaceCount;
+        } else {
+            // For the last word, set space count to 0 (since it has no next word)
+            wordCounts[currentWord] = 0;
+        }
+    }
+
+    return wordCounts;
+}
+
+// Example usage
+ const sentence = "my name   is prince";
+ const result = countWords(sentence);  // Expected output: { my: 1, name: 4, is: 1, prince: 0 }
+ console.log(result)
 
