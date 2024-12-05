@@ -28,7 +28,7 @@ function bubble_sort(arr) {
   let length_arr = arr.length;
   for (let j = 0; j < length_arr; j++) {
    for(let i = 0; i < length_arr; i++){
-    if(arr[i] > arr[i+1]){
+    if(arr[i] < arr[i+1]){
      let temp = arr[i+1]
      arr[i+1] = arr[i]
      arr[i] = temp
