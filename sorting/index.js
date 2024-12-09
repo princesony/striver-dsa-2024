@@ -101,4 +101,37 @@ function merge(left, right) {
   // Step 6: If any elements are left in either array, add them
   return sortedArray.concat(left.slice(leftIndex), right.slice(rightIndex));
 }
-console.log(mergeSort([2, 3, 4, 5, 8]));  // Output: [2, 3, 4, 5, 8]
+// console.log(mergeSort([2, 3, 4, 5, 8]));  // Output: [2, 3, 4, 5, 8]
+
+
+
+
+
+
+let data_binary = [1,2,3,4,5,6,7,8,9]
+
+
+function binary_Search(arr,target){
+let lenth_arr = arr.length;
+let left =0;
+let right = lenth_arr-1;
+while(left<=right){
+  let middle = Math.floor((left+right)/2)
+  
+  if(arr[middle]==target){
+    return middle
+  }
+  if (arr[left]<target) {
+    left = middle+1
+    
+  } else {
+    right = middle-1
+  }
+  }
+
+  return false
+}
+
+
+console.log(binary_Search(data_binary,7))
+ 

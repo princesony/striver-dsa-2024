@@ -99,7 +99,30 @@ function merge(left, right) {
   // Step 6: If any elements are left in either array, add them
   return sortedArray.concat(left.slice(leftIndex), right.slice(rightIndex));
 }
-console.log(mergeSort(data));  // Output: [2, 3, 4, 5, 8]
+// console.log(mergeSort(data));  // Output: [2, 3, 4, 5, 8]
+
+
+let count_space = "prince        soni   ramgarh    kutt"
+
+function space_count(sentence){
+  let words = sentence.trim().replace(/\s+/g," ").split(" ");
+  let count_space = {};
+  for(let i=0;i<words.length;i++){
+    let currenword = words[i];
+    if(!count_space[currenword]){
+      count_space[currenword]=0
+    }
+    if(i<words.length-1){
+      let nextword = words[i+1];
+      let current_end = sentence.indexOf(currenword) + currenword.length;
+      let next_start = sentence.indexOf(nextword , current_end);
+      let space = next_start - current_end
+     count_space[currenword] = space
+    }
+  }
+  return count_space
+}
+ console.log(space_count(count_space));  
 
 
 
