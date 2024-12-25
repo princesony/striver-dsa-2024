@@ -137,7 +137,83 @@ function insertionSort01(arr){
 }
 
 // Example usage
- const sentence = "my name   is prince";
- const result = countWords(sentence);  // Expected output: { my: 1, name: 4, is: 1, prince: 0 }
- console.log(result)
+//  const sentence = "my name   is prince";
+//  const result = countWords(sentence);  // Expected output: { my: 1, name: 4, is: 1, prince: 0 }
+//  console.log(result)
 
+class Node {
+  constructor(data, next = null) {
+    this.data = data;
+    this.next = next;
+  }
+}
+
+class LinkedList {
+  constructor() {
+    this.head = null;
+  }
+
+  // Method to append a new item to the list
+  append_item(data) {
+    let node_data = new Node(data);
+    if (this.head === null) {
+      this.head = node_data;
+    } else {
+      let current = this.head;
+      while (current.next) {
+        current = current.next;
+      }
+      current.next = node_data;
+    }
+  }
+
+  // Method to remove an item by index
+  // Method to remove a node at a specific index
+  removeAt(index) {
+    if (index < 0) return null;
+
+    let current = this.head;
+    let counter = 0;
+
+    // If the head node needs to be removed
+    if (index === 0) {
+      this.head = current.next;
+      return current.data; // Return the data of the removed node
+    }
+
+    // Traverse to find the node just before the one to be removed
+    while (current !== null) {
+      if (counter === index - 1) {
+        if (current.next === null) return null; // If no node exists at the next index
+        current.next = current.next.next; // Skip the node to be removed
+        return; // Node is removed, return nothing
+      }
+      current = current.next;
+      counter++;
+    }
+    return null; // If index is out of bounds
+  }
+   // Method to get the element at a specific index
+   get(index) {
+    let current = this.head;
+    let counter = 0;
+
+    // Traverse the list to find the node at the given index
+    while (current !== null) {
+      if (counter === index) {
+        return current.data; // Return the data of the node at the specified index
+      }
+      current = current.next;
+      counter++;
+    }
+    return null; // Return null if the index is out of bounds
+  }
+  // Method to print all the data in the list
+  print_data() {
+    let current = this.head;
+    while (current) {
+      console.log(current.data);
+      current = current.next; // Update the current pointer
+    }
+  }
+}
